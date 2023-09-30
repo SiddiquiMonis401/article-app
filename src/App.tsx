@@ -1,33 +1,17 @@
-import  { useState } from "react";
-import { ThemeProvider } from "@emotion/react";
-import {
-  Card,
-  CardContent,
-  Switch,
-  Typography,
-  createTheme,
-} from "@mui/material";
+import NewsAppBar from "./layout/app_bar";
+import AppThemeProvider from "./providers/theme_provider";
+import MaterialThemeProvider from "./providers/material_theme_provider";
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? "dark" : "light",
-    },
-  });
+  
 
 
   return (
-    <ThemeProvider theme={theme}>
-      <Switch onChange={() => setDarkMode((prev) => !prev)} />
-      <Card >
-        <CardContent>
-          <Typography color="text.secondary" gutterBottom>
-            Testing theme
-          </Typography>
-        </CardContent>
-      </Card>
-    </ThemeProvider>
+    <AppThemeProvider>
+      <MaterialThemeProvider>
+        <NewsAppBar />
+      </MaterialThemeProvider>
+    </AppThemeProvider>
   );
 }
 
