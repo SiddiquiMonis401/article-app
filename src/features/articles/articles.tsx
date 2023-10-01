@@ -106,7 +106,7 @@ export default function Aritcles() {
               </FormGroup>
             </Grid>
           </Grid>
-          <Grid container xs={12} style={{ height: "100vh" }}>
+          <Grid container item xs={12} style={{ height: "100vh" }}>
             {isLoading && <Loader />}
             {!isLoading && !isError && response && (
               <ArticlesList articles={response.articles} />

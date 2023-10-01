@@ -17,7 +17,6 @@ type Props = {
 const ArticleCard = ({
   article: { title, author, publishedAt: date, content, urlToImage: imageUrl },
 }: Props) => {
-  console.log(title);
   return (
     <Box sx={{padding: 4, maxHeight: 100, maxWidth: '100%'}} >
     <Card>

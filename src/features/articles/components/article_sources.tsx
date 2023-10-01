@@ -10,7 +10,7 @@ export default function ArticleSources({ articleSource: source, onSelectArticleS
   return (
     <div>
       {articleSources.map((articleSource) => (
-        <Box display="inline-block" p={1}>
+        <Box key={articleSource} display="inline-block" p={1}>
           <Chip
           onClick={() => {
             onSelectArticleSource(articleSource)
