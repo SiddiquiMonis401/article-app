@@ -6,11 +6,16 @@ type ThemeProviderProps = {
   children: ReactNode;
 }
 
+
+
 export default function MaterialThemeProvider({ children }: ThemeProviderProps) {
     const { themeData: { darkMode, direction } } = useContext(ThemeContext);
     const theme = createTheme({
       palette: {
         mode: darkMode ? "dark" : "light",
+        primary: {
+          main: darkMode ? '#121212' : '#1976d2',
+        }
       },
       direction,
     });

@@ -5,31 +5,18 @@ import { Popper } from "@mui/base/Popper";
 import { styled } from "@mui/system";
 import { languageOptions } from "../utils/scripts";
 
-import { ThemeContext } from "../../../context";
 
-export default function LangaugeSelector() {
-  
-  const { onChangeThemeData, themeData: { direction } } = React.useContext(ThemeContext);
-  
-  const [{languageCode: enCode},{languageCode: arCode}] = languageOptions;
+type Props = {languageSelected: string, onSelectLangauge: SelectProps<string, false>['onChange']};
 
-  const [value, setValue] = React.useState<string>(
-    direction === 'ltr' ? enCode : arCode 
-  );
+export default function LangaugeSelector({onSelectLangauge, languageSelected}:Props) {
   
-  const onSelectLangauge: SelectProps<string, false>['onChange'] = (_, languageCode) => {
-    if (languageCode) {
-      setValue(languageCode);
-      onChangeThemeData(
-        "direction",
-        languageCode === "ar" ? "rtl" : "ltr"
-      );
-    }
-  }
+
+  
+  
   return (
     <div>
       <CustomSelect
-        value={value}
+        value={languageSelected}
         onChange={onSelectLangauge}
       >
         {languageOptions.map(({language, languageCode}) => (
@@ -102,8 +89,8 @@ const StyledButton = styled("button")(
   }
 
   &.${selectClasses.focusVisible} {
-    border-color: ${blue[400]};
-    outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
+    border-color: #1976d2;
+    outline: 3px solid ${theme.palette.mode === "dark" ? '#1976d2' : blue[200]};
   }
 
   &.${selectClasses.expanded} {

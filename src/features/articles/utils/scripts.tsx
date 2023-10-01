@@ -8,3 +8,5 @@ export const languageOptions = [
     language: "Arabic",
   },
 ];
+
+export const articleSources = ['apple','meta', 'netflix', 'google', 'twitter', 'tesla'];
