@@ -19,7 +19,7 @@ export default function NewsAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News App
+            Article From News.Org
           </Typography>
           <FormGroup>
             <Switch
