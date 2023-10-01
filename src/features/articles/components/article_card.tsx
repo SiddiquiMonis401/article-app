@@ -5,23 +5,21 @@ import {
   CardHeader,
   Typography,
   Avatar,
-  IconButton,
   CardMedia,
   Box,
 } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import { Article } from "../../../types";
 
 type Props = {
-  title: string;
-  author: string;
-  date: string;
-  content: string;
-  imageUrl: string;
+  article: Article;
 };
 
-const ArticleCard = ({ title, author, date, content, imageUrl }: Props) => {
+const ArticleCard = ({
+  article: { title, author, publishedAt: date, content, urlToImage: imageUrl },
+}: Props) => {
+  console.log(title);
   return (
+    <Box sx={{padding: 4, maxHeight: 100, maxWidth: '100%'}} >
     <Card>
       <Box display="flex">
         <Box flex="1">
@@ -34,7 +32,7 @@ const ArticleCard = ({ title, author, date, content, imageUrl }: Props) => {
         </Box>
         <Box flex="2">
           <CardHeader
-            avatar={<Avatar aria-label="Author">{author.charAt(0)}</Avatar>}
+            avatar={<Avatar aria-label="Author">{author?.charAt(0)}</Avatar>}
             title={title}
             subheader={`Published on ${date}`}
           />
@@ -46,6 +44,7 @@ const ArticleCard = ({ title, author, date, content, imageUrl }: Props) => {
         </Box>
       </Box>
     </Card>
+    </Box>
   );
 };
 
