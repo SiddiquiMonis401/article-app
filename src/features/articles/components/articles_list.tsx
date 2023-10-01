@@ -6,5 +6,5 @@ type Props = {
 }
 
 export default function ArticlesList({articles}: Props) {
-    return <>{articles.map((article) => <ArticleCard key={article.title} article={article}/>)}</>
+    return <>{articles?.map((article) => <ArticleCard key={article.title} article={article}/>)}</>
 }  

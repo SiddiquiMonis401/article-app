@@ -16,7 +16,7 @@ type Props = {
 };
 
 const ArticleCard = ({
-  article: { title, author, publishedAt: date, content, urlToImage: imageUrl, url },
+  article: { title, author, publishedAt: date, description, urlToImage: imageUrl, url },
 }: Props) => {
 
   const onArticleSelected = () => {
@@ -45,7 +45,7 @@ const ArticleCard = ({
           />
           <CardContent>
             <Typography variant="body2" color="textSecondary">
-              {content}
+              {description}
             </Typography>
           </CardContent>
         </Box>
