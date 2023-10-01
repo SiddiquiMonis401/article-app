@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { SelectProps } from "@mui/base/Select";
 import {
   Container,
@@ -9,7 +9,7 @@ import { ArtcileAppBar } from "../../layout";
 import LangaugeSelector from "./components/langauge_selector";
 import { ThemeContext } from "../../context";
 import ArticleSources from "./components/article_sources";
-import { getQueryString, languageOptions } from "./utils/scripts";
+import { changeDocumentLanguage, getQueryString, languageOptions } from "./utils/scripts";
 import useRequest from "./hooks/use_request_hook";
 import { ArtcileAPIResponse } from "../../types";
 import ArticlesList from "./components/articles_list";
@@ -26,6 +26,10 @@ export default function Aritcles() {
   const [language, setlanguage] = useState<string>(
     direction === "ltr" ? enCode : arCode
   );
+
+  useEffect(() => {
+    changeDocumentLanguage(language);
+  }, [language]);
 
   const onArticleSourceChange = useCallback(
     (source: string) => {
