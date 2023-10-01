@@ -32,7 +32,7 @@ export default function NewsAppBar() {
                 },
                 '&.MuiSwitch-track': {
                   backgroundColor: 'white', // Set background color to grey
-                },
+                },       
               }}
               onChange={(_, checked) => onChangeThemeData("darkMode", checked)}
             />

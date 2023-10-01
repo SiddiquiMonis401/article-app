@@ -21,7 +21,7 @@ export default function LangaugeSelector({onSelectLangauge, languageSelected}:Pr
       >
         {languageOptions.map(({language, languageCode}) => (
           <StyledOption value={languageCode} key={language}>
-            {languageCode}
+            {language}
           </StyledOption>
         ))}
       </CustomSelect>
