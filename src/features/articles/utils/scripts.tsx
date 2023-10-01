@@ -34,6 +34,10 @@ export const getQueryString = (
     .join("&");
 };
 
+/**
+ * @description - Function to set the document language given the language code
+ * @param languageCode - Language code which should be set for html lang(language) attribute
+ */
 export const changeDocumentLanguage = (languageCode: string) => {
   const htmlElement = document.querySelector("html") as HTMLElement;
 

@@ -12,6 +12,11 @@ type UseRequestReturnType<ResponseType = any> = {
   response?: ResponseType;
 };
 
+/**
+ * @description - Hook to fetch the data - This hook returns {isLoading, error and data component}
+ * @param options - Options to fetch the data 
+ * @returns {UseRequestReturnType<ResponseType>}
+ */
 export default function useRequest<ResponseType = any>({
   endpoint,
   requestOption,

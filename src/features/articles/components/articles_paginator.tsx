@@ -1,6 +1,6 @@
 import { Box, Pagination } from "@mui/material";
 
-type Props = {
+type ArticlePaginationProps = {
   currentPage: number;
   onChange:
     | ((event: React.ChangeEvent<unknown>, page: number) => void)
@@ -12,7 +12,7 @@ export default function ArticlePagination({
   currentPage,
   onChange,
   totalPages,
-}: Props) {
+}: ArticlePaginationProps) {
   return (
     <Box
       sx={{

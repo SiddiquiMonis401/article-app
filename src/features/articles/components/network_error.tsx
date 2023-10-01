@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-interface ErrorComponentProps {
+interface NetworkErrorProps {
   message: string;
 }
 
@@ -20,7 +20,7 @@ const errorMessageStyles = {
   color: "red", // You can customize the error text color
 };
 
-export default function NetworkError({ message }: ErrorComponentProps) {
+export default function NetworkError({ message }: NetworkErrorProps) {
   return (
     <Box sx={errorContainerStyles}>
       <Typography sx={errorMessageStyles}>{message}</Typography>

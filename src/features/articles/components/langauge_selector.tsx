@@ -5,21 +5,19 @@ import { Popper } from "@mui/base/Popper";
 import { styled } from "@mui/system";
 import { languageOptions } from "../utils/scripts";
 
+type LanguageSelectorProps = {
+  languageSelected: string;
+  onSelectLangauge: SelectProps<string, false>["onChange"];
+};
 
-type Props = {languageSelected: string, onSelectLangauge: SelectProps<string, false>['onChange']};
-
-export default function LangaugeSelector({onSelectLangauge, languageSelected}:Props) {
-  
-
-  
-  
+export default function LangaugeSelector({
+  onSelectLangauge,
+  languageSelected,
+}: LanguageSelectorProps) {
   return (
     <div>
-      <CustomSelect
-        value={languageSelected}
-        onChange={onSelectLangauge}
-      >
-        {languageOptions.map(({language, languageCode}) => (
+      <CustomSelect value={languageSelected} onChange={onSelectLangauge}>
+        {languageOptions.map(({ language, languageCode }) => (
           <StyledOption value={languageCode} key={language}>
             {language}
           </StyledOption>
@@ -90,7 +88,7 @@ const StyledButton = styled("button")(
 
   &.${selectClasses.focusVisible} {
     border-color: #1976d2;
-    outline: 3px solid ${theme.palette.mode === "dark" ? '#1976d2' : blue[200]};
+    outline: 3px solid ${theme.palette.mode === "dark" ? "#1976d2" : blue[200]};
   }
 
   &.${selectClasses.expanded} {
@@ -166,4 +164,3 @@ const StyledOption = styled(Option)(
 const StyledPopper = styled(Popper)`
   z-index: 1;
 `;
-
