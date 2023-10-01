@@ -25,10 +25,16 @@ export default function useRequest<ResponseType = any>({
     try {
       setIsLoading(true);
       const data = await fetch(`${endpoint}?${queryParams}`, requestOption);
+      
+      //Fetch does not return error for status code >=400 - Handling it manually
+      if(data.status >= 400) {
+        throw new Error();
+      }
       const response = JSON.parse(await data.text()) as ResponseType;
       setIsLoading(false);
       setResponse(response);
     } catch (err) {
+      console.log('here');
       setIsError(true);
       setIsLoading(false);
     }

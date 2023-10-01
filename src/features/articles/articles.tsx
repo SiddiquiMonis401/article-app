@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { SelectProps } from "@mui/base/Select";
-import { Box, Container, FormGroup, Grid, Pagination } from "@mui/material";
+import { Container, FormGroup, Grid } from "@mui/material";
 import { ArtcileAppBar } from "../../layout";
 import LangaugeSelector from "./components/langauge_selector";
 import { ThemeContext } from "../../context";
@@ -14,6 +14,7 @@ import useRequest from "./hooks/use_request_hook";
 import { ArtcileAPIResponse } from "../../types";
 import ArticlesList from "./components/articles_list";
 import Loader from "./components/loader";
+import NetworkError from "./components/network_error";
 import ArticlePagination from "./components/articles_paginator";
 
 const offset = 10;
@@ -83,6 +84,8 @@ export default function Aritcles() {
 
   const totalPages = Math.ceil((response?.totalResults ?? 0) / offset);
 
+  console.log(isError);
+
   return (
     <>
       <Container dir={direction} maxWidth={false} disableGutters>
@@ -126,16 +129,17 @@ export default function Aritcles() {
           </Grid>
           <Grid container item xs={12} style={{ height: "100vh" }}>
             {isLoading && <Loader />}
+            {isError && <NetworkError message="Error Occured While fetching data"/>}
             {!isLoading && !isError && response && (
               <ArticlesList articles={response.articles} />
             )}
-            <Grid item xs={12}>
+            {!isLoading && !isError && <Grid item xs={12}>
               <ArticlePagination
                 currentPage={page}
                 totalPages={totalPages}
                 onChange={(_, page) => setPage(page)}
               />
-            </Grid>
+            </Grid>}
           </Grid>
         </Container>
       </Container>
