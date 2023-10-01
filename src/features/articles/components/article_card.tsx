@@ -15,9 +15,16 @@ type Props = {
 };
 
 const ArticleCard = ({
-  article: { title, author, publishedAt: date, content, urlToImage: imageUrl },
+  article: { title, author, publishedAt: date, content, urlToImage: imageUrl, url },
 }: Props) => {
+
+  const onArticleSelected = () => {
+    const newTab = window.open(url, '_blank')!;
+    newTab.focus();
+  }
+
   return (
+    <div onClick={onArticleSelected}>
     <Box sx={{padding: 4, maxHeight: 100, maxWidth: '100%'}} >
     <Card>
       <Box display="flex">
@@ -44,6 +51,7 @@ const ArticleCard = ({
       </Box>
     </Card>
     </Box>
+    </div>
   );
 };
 
