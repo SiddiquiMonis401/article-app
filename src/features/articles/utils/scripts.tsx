@@ -39,3 +39,5 @@ export const changeDocumentLanguage = (languageCode: string) => {
 
   htmlElement.setAttribute("lang", languageCode);
 };
+
+export const fallbackURL = 'https://unsplash.com/photos/aId-xYRTlEc';

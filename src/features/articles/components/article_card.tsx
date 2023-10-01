@@ -9,6 +9,7 @@ import {
   Box,
 } from "@mui/material";
 import { Article } from "../../../types";
+import { fallbackURL } from "../utils/scripts";
 
 type Props = {
   article: Article;
@@ -33,7 +34,7 @@ const ArticleCard = ({
             component="img"
             alt="Article Image"
             height="140"
-            image={imageUrl} // Pass the image URL as a prop
+            image={imageUrl || fallbackURL} // Pass the image URL as a prop
           />
         </Box>
         <Box flex="2">
